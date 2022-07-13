@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               Text(
                 "Welcome back",
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.black87,
                   fontWeight: FontWeight.bold,
                   fontSize: 43.0,
                 ),
@@ -71,6 +71,10 @@ class _LoginPageState extends State<LoginPage> {
                     ]),
                 child: TextField(
                   decoration: InputDecoration(
+                    hintText: "Email",
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
                       borderSide: BorderSide(
@@ -105,6 +109,10 @@ class _LoginPageState extends State<LoginPage> {
                     ]),
                 child: TextField(
                   decoration: InputDecoration(
+                    hintText: "Password",
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
                       borderSide: BorderSide(
@@ -157,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Text(
             'Sign in',
             style: TextStyle(
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w600,
               fontSize: 30,
               color: Colors.white,
             ),
