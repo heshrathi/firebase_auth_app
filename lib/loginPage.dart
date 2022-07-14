@@ -1,6 +1,8 @@
+import 'package:firebase_auth_app/signupPage.dart';
+import 'package:firebase_auth_app/welcomePage.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -75,6 +77,10 @@ class _LoginPageState extends State<LoginPage> {
                     hintStyle: TextStyle(
                       color: Colors.grey,
                     ),
+                    prefixIcon: Icon(
+                      Icons.email,
+                      color: Colors.deepOrangeAccent,
+                    ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
                       borderSide: BorderSide(
@@ -112,6 +118,10 @@ class _LoginPageState extends State<LoginPage> {
                     hintText: "Password",
                     hintStyle: TextStyle(
                       color: Colors.grey,
+                    ),
+                    prefixIcon: Icon(
+                      Icons.password_sharp,
+                      color: Colors.deepOrangeAccent,
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(40),
@@ -151,23 +161,33 @@ class _LoginPageState extends State<LoginPage> {
         SizedBox(
           height: 30,
         ),
-        Container(
-          width: w * 0.6,
-          height: h * 0.08,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(40),
-            image: DecorationImage(
-              image: AssetImage("img/loginbtn.png"),
-              fit: BoxFit.cover,
+        InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => WelcomePage(),
+              ),
+            );
+          },
+          child: Container(
+            width: w * 0.6,
+            height: h * 0.08,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40),
+              image: DecorationImage(
+                image: AssetImage("img/loginbtn.png"),
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            'Sign in',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 30,
-              color: Colors.white,
+            alignment: Alignment.center,
+            child: Text(
+              'Sign in',
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 30,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -181,16 +201,21 @@ class _LoginPageState extends State<LoginPage> {
                 text: 'Don\'t have account? ',
                 style: TextStyle(
                   color: Colors.grey,
-                  fontSize: 20,
+                  fontSize: 18,
                 ),
               ),
               TextSpan(
-                  text: 'Create',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ))
+                text: 'Create',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.grey[700],
+                  fontWeight: FontWeight.bold,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Get.to(() => SignUpPage());
+                  },
+              ),
             ]),
           ),
         )

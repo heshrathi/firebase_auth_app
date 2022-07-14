@@ -1,6 +1,10 @@
+import 'package:firebase_auth_app/loginPage.dart';
+import 'package:firebase_auth_app/welcomePage.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 
 class SignUpPage extends StatelessWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -15,7 +19,7 @@ class SignUpPage extends StatelessWidget {
         children: [
           Container(
             width: w,
-            height: h * 0.4,
+            height: h * 0.3,
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage('img/signup.png'),
@@ -25,10 +29,10 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: h * 0.21,
+                  height: h * 0.148,
                 ),
                 CircleAvatar(
-                  radius: w * 0.18,
+                  radius: w * 0.15,
                   backgroundColor: Colors.white,
                   backgroundImage: AssetImage('img/profile.png'),
                 )
@@ -36,7 +40,7 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: h * 0.06,
+            height: h * 0.08,
           ),
           Container(
             margin: const EdgeInsets.symmetric(
@@ -58,6 +62,10 @@ class SignUpPage extends StatelessWidget {
                 hintText: "Email",
                 hintStyle: const TextStyle(
                   color: Colors.grey,
+                ),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.deepOrangeAccent,
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
@@ -98,6 +106,10 @@ class SignUpPage extends StatelessWidget {
                 hintStyle: const TextStyle(
                   color: Colors.grey,
                 ),
+                prefixIcon: Icon(
+                  Icons.password_sharp,
+                  color: Colors.deepOrangeAccent,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(40),
                 ),
@@ -117,25 +129,67 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: h * 0.08,
+            height: h * 0.02,
           ),
           Container(
-            height: h * 0.08,
-            width: w * 0.6,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(40),
-              image: DecorationImage(
-                image: AssetImage('img/loginbtn.png'),
-                fit: BoxFit.cover,
-              ),
+            alignment: Alignment.centerRight,
+            margin: EdgeInsets.symmetric(
+              horizontal: 25,
             ),
-            alignment: Alignment.center,
-            child: const Text(
-              'Sign in',
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 30,
-                color: Colors.white,
+            child: RichText(
+              text: TextSpan(children: [
+                TextSpan(
+                  text: 'Already have account? ',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 15,
+                  ),
+                ),
+                TextSpan(
+                  text: 'Log in',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.grey[700],
+                    fontWeight: FontWeight.bold,
+                  ),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      Get.to(() => LoginPage());
+                    },
+                ),
+              ]),
+            ),
+          ),
+          SizedBox(
+            height: h * 0.08,
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WelcomePage(),
+                ),
+              );
+            },
+            child: Container(
+              height: h * 0.08,
+              width: w * 0.6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                image: DecorationImage(
+                  image: AssetImage('img/loginbtn.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              alignment: Alignment.center,
+              child: const Text(
+                'Sign in',
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 30,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
@@ -158,22 +212,34 @@ class SignUpPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const CircleAvatar(
-                  backgroundImage: AssetImage('img/g.png'),
+                  radius: 22,
                   backgroundColor: Colors.grey,
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundImage: AssetImage('img/g.png'),
+                  ),
                 ),
                 SizedBox(
                   width: w * 0.06,
                 ),
                 const CircleAvatar(
-                  backgroundImage: AssetImage('img/t.png'),
+                  radius: 22,
                   backgroundColor: Colors.grey,
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundImage: AssetImage('img/t.png'),
+                  ),
                 ),
                 SizedBox(
                   width: w * 0.06,
                 ),
                 const CircleAvatar(
-                  backgroundImage: AssetImage('img/f.png'),
+                  radius: 22,
                   backgroundColor: Colors.grey,
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundImage: AssetImage('img/f.png'),
+                  ),
                 ),
               ],
             ),
