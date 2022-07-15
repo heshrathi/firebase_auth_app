@@ -6,6 +6,9 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
+ ## Snapshots
+<img src="Screenshot/Screenshot3.1.png" height="600" width="295"/> &nbsp; <img src="Screenshot/Screenshot3.3.png" height="600" width="295"/> &nbsp; <img src="Screenshot/Screenshot3.2.png" height="600" width="295"/>
+
 A few resources to get you started if this is your first Flutter project:
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
