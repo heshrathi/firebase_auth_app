@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,6 +11,10 @@ class SplashScreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           color: Colors.grey[200],
+          image: DecorationImage(
+            image: AssetImage("img/loginbtn.png"),
+            fit: BoxFit.fill,
+          ),
         ),
         width: double.maxFinite,
         height: double.maxFinite,
@@ -23,10 +24,10 @@ class SplashScreen extends StatelessWidget {
               SizedBox(
                 height: h * 0.3,
               ),
-              Text(
+              const Text(
                 'Firebase Authentication',
                 style: TextStyle(
-                  color: Colors.deepOrangeAccent,
+                  color: Colors.black,
                   fontWeight: FontWeight.w700,
                   fontSize: 30.0,
                 ),
@@ -34,10 +35,10 @@ class SplashScreen extends StatelessWidget {
               SizedBox(
                 height: h * 0.2,
               ),
-              CircularProgressIndicator(
-                backgroundColor: Colors.blueAccent,
-                color: Colors.deepOrangeAccent,
-                strokeWidth: 40,
+              const CircularProgressIndicator(
+                backgroundColor: Colors.deepOrangeAccent,
+                color: Colors.blueAccent,
+                strokeWidth: 35,
               ),
             ],
           ),

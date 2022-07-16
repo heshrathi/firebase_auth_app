@@ -1,10 +1,11 @@
-import 'package:firebase_auth_app/loginPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth_app/authController.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'dart:ui';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  String email;
+  WelcomePage({Key? key, required this.email}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +58,7 @@ class WelcomePage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "xyz@gmail.com",
+                  email,
                   style: TextStyle(
                     fontSize: 20.0,
                     color: Colors.grey[500],
@@ -69,14 +70,9 @@ class WelcomePage extends StatelessWidget {
           SizedBox(
             height: h * 0.2,
           ),
-          InkWell(
+          GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => LoginPage(),
-                ),
-              );
+              AuthController.instance.logout();
             },
             child: Container(
               width: w * 0.6,

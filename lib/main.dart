@@ -1,11 +1,12 @@
-import 'package:firebase_auth_app/loginPage.dart';
-import 'package:firebase_auth_app/signupPage.dart';
+import 'package:firebase_auth_app/authController.dart';
 import 'package:firebase_auth_app/splashScreen.dart';
-import 'package:firebase_auth_app/welcomePage.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp().then((value) => Get.put(AuthController()));
   runApp(const MyApp());
 }
 
